@@ -10,6 +10,9 @@
 ## mutate() adds new variables that are functions of existing variables
 ## group_by() to perform operations by group
 
+
+# Load packages -----------------------------------------------------------
+
 library(dplyr)     # for data manipulation
 library(babynames) # for data to play with
 library(ggplot2)   # for data to play with

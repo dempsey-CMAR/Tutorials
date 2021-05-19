@@ -17,21 +17,23 @@
 ## iteration (e.g., loops, apply functions, purrr package)
 
 # Today we are going to talk about loops (imperative programming), because they
-## make the iteration explicit (good place to start!)
-## (Loops are very "verbose" (need a lot of code) and can be slow, but are
-## really useful in some situations and a good place to start)
+## make the iteration explicit (a good place to start!)
+
+## NOTE: Loops are very "verbose" (need a lot of code) and can be slow, but are
+## really useful in some situations and a good place to start
 
 
 # packages -----------------------------------------------------------------
+
 library(dplyr)
 library(ggplot2)
 library(praise)
 
 # First example -----------------------------------------------------------
 
-R_group <- c("Danielle", "Laila", "Leigh", "Nicole", "Ryan", "Kiersten", "James")
+R_group <- c("Danielle", "Laila", "Leigh", "Nicole", "Ryan", "Kiersten")
 
-# extract elements using []
+# recall: extract elements using []
 R_group[6]
 R_group[3]
 
@@ -43,15 +45,19 @@ print(
 # Give praise to EVERYONE! 
 # copy/paste
 print(
-  paste0(R_group[2], ": ", praise(template = "is ${adverb} ${adjective}!"))
+  paste0(R_group[1], ": ", praise())
 )
 
 print(
-  paste0(R_group[3], ": ", praise(template = "is ${adverb} ${adjective}!"))
+  paste0(R_group[2], ": ", praise())
 )
 
 print(
-  paste0(R_group[4], ": ", praise(template = "is ${adverb} ${adjective}!"))
+  paste0(R_group[3], ": ", praise())
+)
+
+print(
+  paste0(R_group[4], ": ", praise())
 )
 
 ## loop over all elements in R_group
@@ -65,13 +71,6 @@ for(i in 1:6){
 }
 
 # more generic
-length(R_group)
-
-R_group <- c("Danielle", "Laila", "Leigh", 
-             "Nicole", "Ryan", "Kiersten", "James",
-             "Gregor", "Leah")
-
-
 for(i in seq_along(R_group)){
 
   print(
@@ -80,8 +79,6 @@ for(i in seq_along(R_group)){
 
 }
 
-
-#template = "is ${adverb} ${adjective}!")
 
 # Motivation --------------------------------------------------------------
 
@@ -115,10 +112,11 @@ output
 
 # Note1: can use any variable for counter - traditional to use i, j, or k
 
-# Note2: use seq_along() instead of length() because it does the right thing for zero-length vector)
-# y <- vector("double", 0)
-# seq_along(y)
-# 1:length(y)
+# Note2: use seq_along() instead of length() because it does the right thing 
+## for zero-length vector)
+## y <- vector("double", 0)
+## seq_along(y)
+## 1:length(y)
 
 # Note3: while loops are also a thing, but we won't talk about them today
 
@@ -131,7 +129,9 @@ starwars_data <- starwars %>%
 glimpse(starwars_data)
 
 # what is the mean height and mass for each species?
-species <- unique(starwars_data$species) # find the unique values of species (to loop over)
+
+# find the unique values of species (to loop over)
+species <- unique(starwars_data$species) 
 
 species_stats <- data.frame(NULL)  # 1. output
 
@@ -172,7 +172,7 @@ ggplot(species_stats_dplyr, aes(x = mean_mass, y = mean_height)) +
   geom_point(col = "purple")
 
 
-# JFF
+# Just For Fun...
 ggplot(starwars_data, aes(x = mass, y = height, col = sex)) +
   geom_point()
 

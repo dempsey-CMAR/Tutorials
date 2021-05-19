@@ -6,17 +6,22 @@
 ## to learn how to use 2 packages from the tidyverse: readr and readxl
 ## and one package not from the tidyverse: data.table
 
-# Recall that packages are bundled functions + documentation that can be installed from
-## CRAN or GitHub (and sometimes other places)
+# Recall that packages are bundled functions + documentation that can be 
+## installed from CRAN or GitHub (and sometimes other places)
 
 # The tidyverse is a group of packages that work really well together.
-# These packages include functions to help with many data science tasks, including
-## data import, data cleaning, data manipulation, plotting, and analysis
+# These packages include functions to help with many data science tasks, 
+## including data import, cleaning, manipulation, plotting, and analysis.
+
+# We will use data from the Centre for Marine Applied Research's 
+## Coastal Monitoring Program
+# These and other coastal datasets can be downloaded from: 
+## https://data.novascotia.ca/browse?tags=coastal+monitoring+program
 
 
 # install packages
-# (You only need to run this once to install the packages. After that you can comment
-## out or delete these lines)
+# (You only need to run this once to install the packages. 
+## After that you can comment out or delete these lines)
 install.packages("readr")
 install.packages("readxl")
 install.packages("data.table")
@@ -26,7 +31,7 @@ install.packages("here")
 # Set Up ------------------------------------------------------------------
 
 # load the packages (otherwise R won't recognize the functions)
-# it is good practice to load ALL packages that you will need for a script at the
+# it is good practice to load ALL packages you will need for a script at the
 ## top of the script
 library(dplyr)       # for data manipulation
 library(here)        # to tell R where to look for the data
@@ -36,8 +41,9 @@ library(data.table)  # for FAST importing/exporting csv files
 
 
 # set the path (tell R where on your computer to look for the data)
-path <- file.path("C:/Users/Danielle Dempsey/Desktop/RProjects/Tutorials/Tutorial 2_Importing Data/data")
-
+# make sure you use this script to open R so that the path will be correct!
+#  (or set the path manually)
+path <- paste0(here(), "/Tutorial 2_Importing Data")
 
 # readr ----------------------------------------------------------------
 
@@ -46,7 +52,7 @@ path <- file.path("C:/Users/Danielle Dempsey/Desktop/RProjects/Tutorials/Tutoria
 ?read_csv
 
 # read in the data
-data1 <- read_csv(file = paste0(path, "/Borgles Island_2019-05-30_TEMP_DO_trimmed.csv"))
+data1 <- read_csv(file = paste0(path, "/data/Borgles Island_2019-05-30.csv"))
 
 # take a quick look at the data -- make sure all columns/rows were read in
 glimpse(data1)
@@ -65,7 +71,7 @@ data1 %>% filter(VARIABLE == "Temperature") %>% select(VALUE) %>%  summary()
 # readxl ----------------------------------------------------------------
 
 # let's try reading in the Pirate Harbour Data
-data2 <- read_excel(path = paste0(path, "/Pirate Harbour_2019-06-21_TEMP_DO_trimmed.xlsx"),
+data2 <- read_excel(path = paste0(path, "/data/Pirate Harbour_2019-06-21.xlsx"),
                                   sheet = "ALL_Data")
 
 # take a quick look at the data -- make sure all columns/rows were read in
@@ -88,28 +94,28 @@ data2 %>% distinct(DEPTH)
 data2 %>% filter(VARIABLE == "Temperature") %>% select(VALUE) %>%  summary()
 
 # we could also read in a different sheet from the workbook
-data_random <- read_excel(path = paste0(path, "/Pirate Harbour_2019-06-21_TEMP_DO_trimmed.xlsx"),
+dat_rand <- read_excel(path = paste0(path, "/data/Pirate Harbour_2019-06-21.xlsx"),
                     sheet = "Random_Nums")
 
-glimpse(data_random)
+glimpse(dat_rand)
 
 
 # data.table ----------------------------------------------------------------
 
 # this package includes functions for FAST importing of csv files
-# this is helpful when reading in BIG files, for example all of the Coastal Monitoring Program
-# data for a county
+# this is helpful when reading in BIG files, for example 
+## all of the Coastal Monitoring Program data for a county
 
-data3 <- fread(paste0(path, "/Digby_2021-01-07.csv"))
+data3 <- fread(paste0(path, "/data/Digby_2021-01-07.csv"))
 
 # take a quick look at the data -- make sure all columns/rows were read in
 glimpse(data3)
 
 # take a closer look at some columns. . ..
-# let's see which STATIONS are in this dataset (don't worry about understanding the code)
+# let's see which STATIONS are in this dataset 
 data3 %>% distinct(STATION)
 
-# let's see which VARIABLES are in this dataset (don't worry about understanding the code)
+# let's see which VARIABLES are in this dataset 
 data3 %>% distinct(VARIABLE)
 
 # let's see what DEPTHS are in this dataset

@@ -77,7 +77,7 @@ class(my_time)
 
 # Vectors -----------------------------------------------------------------
 
-# vectors are "1-dimension arrays that can hold numeric, character, or logical data.
+# vectors are "1-dimension arrays that can hold numeric, character, or logical data."
 ## In other words, a way to store data
 
 numeric_vector <- c(1, 2, 3)

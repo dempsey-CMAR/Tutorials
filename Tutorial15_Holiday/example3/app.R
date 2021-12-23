@@ -22,17 +22,18 @@ ui <- fluidPage(
   
   sidebarPanel(
     selectInput("greeting", label = "Choose holiday greeting", 
-                choices = greet$GREETING),
+                choices = sort(greet$GREETING)),
     
     textInput("to", label = "Enter name of recipient:", value = ""),
     textInput("from", label = "Enter your name:", value = ""),
+    textInput("note", label = "Enter your message:", value = ""),
     
-    numericInput("dec_seed", value = 0, label = "Enter random seed:"),
+    numericInput("dec_seed", value = 678, label = "Enter number to randomly place decorations:"),
     
     downloadButton('downloadPlot', 'Download Card')
   ),
   
-  mainPanel(plotOutput("tree"))
+  mainPanel(plotOutput("tree", width = "70%"))
   
 )
 
@@ -43,7 +44,7 @@ server <- function(input, output, session) {
   tree_plot <- reactive({
     
     message <- input$greeting
-    address <- glue("To: {input$to} \nFrom: {input$from}")
+    address <- glue("To: {input$to} \nFrom: {input$from} \n{input$note}")
     
     seed <- input$dec_seed
     

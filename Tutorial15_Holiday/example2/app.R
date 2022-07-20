@@ -11,8 +11,8 @@ library(readr)
 library(shiny)
 
 
-greet <- read_csv(here("greetings.csv"))
-source(here("generate_christmas_tree.R"))
+greet <- read_csv(here("Tutorial15_Holiday/example2/greetings.csv"))
+source(here("Tutorial15_Holiday/example2/generate_christmas_tree.R"))
 
 # tell it what to say
 ui <- fluidPage(

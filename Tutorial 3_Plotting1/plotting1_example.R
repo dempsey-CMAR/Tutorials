@@ -67,6 +67,5 @@ p_pretty
 
 # strings function --------------------------------------------------------
 
-plot_variables_at_depth(string_data,
-                        vars.to.plot = c("Dissolved Oxygen", "Temperature"))
+plot_variables_at_depth(string_data)
 

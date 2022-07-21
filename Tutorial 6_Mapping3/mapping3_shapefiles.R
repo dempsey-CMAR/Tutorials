@@ -100,8 +100,9 @@ crs <- 4617                                                         # CRS of the
 
 # animal recording sites
 sites <- sites_raw %>%
-  st_transform(crs = crs) %>%
+  st_transform(crs = crs) %>% 
   st_crop(bbox)
+# Don't worry about the warning message.
 
 
 # Read in searching zone data -------------------------------------------------
@@ -153,6 +154,7 @@ map_base <- ggplot() +
   
 # look what we created:
 map_base  
+# Don't worry about the warning message.
 
 # now let's add the animal found data
 map_base +

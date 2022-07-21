@@ -97,27 +97,3 @@ leaflet(data = st_ann) %>%
                    radius = 4, fillOpacity = 1, stroke = FALSE) 
 
 
-# add sites to leaflet plot ----------------------------------------------
-crs_leaflet <- "+proj=longlat +datum=WGS84"
-
-sites <- sites %>% 
-  st_transform(crs = crs_leaflet)
-
-
-leaflet(data = st_ann) %>%
-  addProviderTiles(providers$CartoDB.Positron) %>%
-
-  addPolygons(data = sites,
-              color = "#444444", weight = 1, smoothFactor = 0.5,
-              label = ~site,
-              labelOptions = labelOptions(permanent = FALSE),
-              opacity = 1.0, fillOpacity = 0.5,
-              highlightOptions = highlightOptions(color = "white", weight = 2,
-                                                  bringToFront = TRUE)) %>% 
-  addCircleMarkers(~Long, ~Lat, popup =  ~Place_code,
-                   radius = 4, fillOpacity = 1, stroke = FALSE) 
-
-
-
-
-

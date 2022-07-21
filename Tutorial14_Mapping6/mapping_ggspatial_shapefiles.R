@@ -141,6 +141,7 @@ bbox <- c(xmin = -61.14,  ymin = 45.942, xmax = -61.11,  ymax = 45.955) # boundi
 sites <- sites_raw %>%
   st_transform(crs = crs) %>%
   st_crop(bbox)
+# Don't worry about the warning message.
 
 # add sites
 ggplot() +
@@ -191,6 +192,7 @@ map_base <- ggplot() +
 
 # look what we created:
 map_base  
+# Don't worry about the warning message.
 
 # now let's add the animal found data
 map_base +

@@ -26,7 +26,7 @@ library(readr)      # to read in data
 
 # Import and explore data -------------------------------------------------
 
-path <- paste0(here(), "/Tutorial 5_Mapping2") # automatically sets the path 
+path <- paste0(here(), "/Tutorial 6_Mapping2_ggspatial") # automatically sets the path 
 
 # read in the data (if this doesn't work, trying pasting in the path manually)
 dat <- read_csv(paste0(path, "/data/data_file.csv"))
@@ -121,7 +121,7 @@ map_output <- ggplot() +
   annotation_scale(location = "br") +                           # scale bar
   annotation_north_arrow(location = "tl", which_north = "true") # North arrow
 
-ggsave(filename = "NS_ggspatial.png",
+ggsave(filename = paste0(path, "/NS_ggspatial.png"),
        plot = map_output,
        device = "png",
        width = 18, 

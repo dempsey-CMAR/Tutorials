@@ -21,7 +21,7 @@ grass_colour <-"green3"
 
 # Eelgrass data -----------------------------------------------------------
 
-path <- paste0(here(), "/Tutorial 7_Office Hours")
+path <- paste0(here(), "/Tutorial 8_Mapping4_rnaturalearth")
 
 eelgrass <- read_sf(paste0(path, "/data/SEAGRASSES.shp"))
 

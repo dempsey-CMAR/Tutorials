@@ -18,7 +18,7 @@ library(readr)      # to read in data
 
 # Import and explore data -------------------------------------------------
 
-path <- paste0(here(), "/Tutorial 4_Mapping1")  # automatically sets the path 
+path <- paste0(here(), "/Tutorial 5_Mapping1_leaflet")  # automatically sets the path 
 
 # read in the data (if this doesn't work, trying pasting in the path manually)
 dat <- read_csv(paste0(path, "/data/data_file.csv"))
@@ -127,7 +127,7 @@ map_output <- leaflet(data = dat) %>%
                    stroke = FALSE) 
 
 # export using the saveWidget function from the htmlwidgets package
-saveWidget(map_output, file = "NS_leaflet.html") 
+saveWidget(map_output, file = paste0(path, "/NS_leaflet.html"))
 
 
 

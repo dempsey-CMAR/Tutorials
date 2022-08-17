@@ -34,7 +34,7 @@ library(RColorBrewer) # to make a nice colour palette
 
 # Import data -------------------------------------------------
 
-path <- paste0(here(), "/Tutorial 6_Mapping3")  # automatically sets the path 
+path <- paste0(here(), "/Tutorial 7_Mapping3_shapefiles")  # automatically sets the path 
 
 # read in the data (if this doesn't work, trying pasting in the path manually)
 dat <- read_csv(paste0(path, "/data/data_file.csv"))
@@ -176,7 +176,7 @@ map_base +
   theme_light() 
 
 # Export map
-ggsave(filename = "NS_shapefiles.png",
+ggsave(filename = paste0(path, "/NS_shapefiles.png"),
        device = "png",
        width = 20, height = 18, units = "cm",
        dpi = 600)

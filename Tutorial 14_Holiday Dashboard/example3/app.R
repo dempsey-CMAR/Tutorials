@@ -10,10 +10,12 @@ library(glue)
 library(readr)
 library(shiny)
 
+path <- paste0(here(), "/Tutorial 14_Holiday Dashboard/example3")
 # import greeting options 
-greet <- read_csv(here("Tutorial15_Holiday/example3/greetings.csv"))
+greet <- read_csv(paste0(path, "/greetings.csv"))
 # source tree function
-source(here("Tutorial15_Holiday/example3/generate_christmas_tree.R"))
+source(paste0(path, "/generate_christmas_tree.R"))
+
 
 # tell it what to say
 ui <- fluidPage(

@@ -1,6 +1,6 @@
 # April 7, 2021
 
-# Iteration 1: Loops
+# Iteration: Loops
 
 # Inspiration from R for Data Science (Hadley Wickham)
 # https://r4ds.had.co.nz/iteration.html?q=itera#iteration

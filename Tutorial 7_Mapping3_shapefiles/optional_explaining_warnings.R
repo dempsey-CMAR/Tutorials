@@ -7,7 +7,7 @@ library(dplyr)
 library(here)
 
 # You may have noticed that running this code produced a warning message.
-path <- paste0(here(), "/Tutorial 6_Mapping3") 
+path <- paste0(here(), "/Tutorial 7_Mapping3_shapefiles") 
 sites_raw <- read_sf(paste0(path, "/Sites/habitat.shp"))
 bbox <- c(xmin = -61.14,  ymin = 45.942, xmax = -61.11,  ymax = 45.955) # bounding box for Whycocomagh Basin
 crs <- 4617                                                             # CRS of the data

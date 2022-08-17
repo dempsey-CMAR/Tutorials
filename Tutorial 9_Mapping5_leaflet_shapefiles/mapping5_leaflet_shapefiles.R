@@ -24,7 +24,7 @@ library(readr)        # to read in data
 
 # Import data -------------------------------------------------
 
-path <- paste0(here(), "/Tutorial13_Mapping5")  # automatically sets the path 
+path <- paste0(here(), "/Tutorial 9_Mapping5_leaflet_shapefiles")  # automatically sets the path 
 
 dat <- read_csv(paste0(path, "/data/data_file.csv"))
 

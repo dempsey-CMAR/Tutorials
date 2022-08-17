@@ -12,7 +12,7 @@ library(here)       # relative file paths
 library(strings)    # to manipulate strings data
 
 # Use the fread function to read in the data
-path <- paste0(here(), "/Tutorial 3_Plotting1")
+path <- paste0(here(), "/Tutorial 3_Plotting")
 
 string_data <- fread(paste0(path, "/data/Pirate Harbour_2019-06-21.csv")) 
 

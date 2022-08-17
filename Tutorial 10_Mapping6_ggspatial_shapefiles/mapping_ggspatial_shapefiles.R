@@ -33,7 +33,7 @@ library(RColorBrewer) # to make a nice colour palette
 
 theme_set(theme_light())
 
-path <- paste0(here(), "/Tutorial14_Mapping6")
+path <- paste0(here(), "/Tutorial 10_Mapping6_ggspatial_shapefiles")
 
 dat <- read_csv(paste0(path, "/data/data_file.csv")) %>%
   filter(Location == "Whycocomagh Bay", Year == 2018) %>% 
@@ -200,7 +200,7 @@ map_base +
   scale_color_manual(name = "Animal Found", values = animal_cols, drop = FALSE)
 
 # Export map
-ggsave(filename = "NS_ggspatial_shapefiles.png", 
+ggsave(filename = paste0(path, "/NS_ggspatial_shapefiles.png"), 
        device = "png",
        width = 20, height = 18, units = "cm",
        dpi = 600)

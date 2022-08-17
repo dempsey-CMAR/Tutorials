@@ -9,8 +9,9 @@ library(ggplot2)
 library(readr)
 library(shiny)
 
-greet <- read_csv(here("Tutorial15_Holiday/example1/greetings.csv"))
-source(here("Tutorial15_Holiday/example1/generate_christmas_tree.R"))
+path <- paste0(here(), "/Tutorial 14_Holiday Dashboard/example1")
+greet <- read_csv(paste0(path, "/greetings.csv"))
+source(paste0(path, "/generate_christmas_tree.R"))
 
 
 # tell it what to say

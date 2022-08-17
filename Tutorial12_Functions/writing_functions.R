@@ -56,7 +56,7 @@ library(dplyr)       # data manipulation
 library(strings)     # for example data and functions
 library(ggplot2)     # to plot data
 
-path <- paste0(here(), "/Tutorial 12_Functions")
+path <- paste0(here(), "/Tutorial12_Functions")
 
 # Simple Example ----------------------------------------------------------
 

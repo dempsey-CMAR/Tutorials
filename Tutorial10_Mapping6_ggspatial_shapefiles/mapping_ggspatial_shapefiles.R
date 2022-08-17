@@ -33,7 +33,7 @@ library(RColorBrewer) # to make a nice colour palette
 
 theme_set(theme_light())
 
-path <- paste0(here(), "/Tutorial 10_Mapping6_ggspatial_shapefiles")
+path <- paste0(here(), "/Tutorial10_Mapping6_ggspatial_shapefiles")
 
 dat <- read_csv(paste0(path, "/data/data_file.csv")) %>%
   filter(Location == "Whycocomagh Bay", Year == 2018) %>% 

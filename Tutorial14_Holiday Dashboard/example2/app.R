@@ -10,7 +10,7 @@ library(glue)
 library(readr)
 library(shiny)
 
-path <- paste0(here(), "/Tutorial 14_Holiday Dashboard/example2")
+path <- paste0(here(), "/Tutorial14_Holiday Dashboard/example2")
 greet <- read_csv(paste0(path, "/greetings.csv"))
 source(paste0(path, "/generate_christmas_tree.R"))
 

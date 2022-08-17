@@ -10,7 +10,7 @@ library(glue)
 library(readr)
 library(shiny)
 
-path <- paste0(here(), "/Tutorial 14_Holiday Dashboard/example3")
+path <- paste0(here(), "/Tutorial14_Holiday Dashboard/example3")
 # import greeting options 
 greet <- read_csv(paste0(path, "/greetings.csv"))
 # source tree function

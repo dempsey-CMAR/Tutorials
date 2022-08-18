@@ -2,6 +2,9 @@
 
 # My first shiny app
 
+# A shiny app consists of a ui (user interface) and a server.
+# This basic app has no input or output, and merely displays "Hello, world!"
+
 # load the package
 library(shiny)
 

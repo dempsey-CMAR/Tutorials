@@ -1,5 +1,6 @@
 # In this tutorial, we use the rnaturalearth package to make a basemap for mapping the world's eelgrasses.
-# (The data is from the IUCN Red List.)
+# Eelgrass data citation:
+# IUCN (International Union for Conservation of Nature) 2017. Seagrasses. IUCN Red List of Threatened Species. https://www.iucnredlist.org. Downloaded 2021.
 
 library(dplyr)
 library(ggplot2)

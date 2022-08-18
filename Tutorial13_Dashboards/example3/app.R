@@ -1,6 +1,10 @@
 
 library(shiny)
 
+# This more complex app displays a histogram of data, and allows the user to adjust
+# the number of bins using a slider. 
+
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 

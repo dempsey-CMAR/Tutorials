@@ -2,6 +2,10 @@
 
 # My second shiny app
 
+# In this app, the input is a drop-down list of R's built-in datasets, and the 
+# outputs are a summary and a table of the chosen dataset. The ui sets up these
+# elements, and the server handles the interactivity.
+
 # load the package
 library(shiny)
 

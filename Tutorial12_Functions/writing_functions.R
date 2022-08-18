@@ -75,7 +75,7 @@ paste0("Laila", ": ", praise())
 
 # if we want to change the format of the praise, we need to change every line!
 # error-prone if lines scattered through script or MULTIPLE scripts!
-paste0("Danielle", praise(template = " is ${adjective}!"))
+paste0("Danielle", praise(template = " is ${adverb} ${adjective}!"))
 
 # to future-proof our code, let's write a function!
 # save it in a different script to keep the main script easy to read
@@ -112,7 +112,7 @@ give_praise("Laila")
 
 # make a faceted plot of data measured by sensor strings
 
-data(tidy_data)
+data(tidy_data) # tidy_data is included in the strings package. This loads it into the environment.
 
 dat <- tidy_data %>% 
   convert_depth_to_ordered_factor()
@@ -132,7 +132,8 @@ ggplot(dat, aes(x = TIMESTAMP, y = VALUE, col = DEPTH)) +
                       values = color.pal,
                       drop = FALSE) +
   guides(color = guide_legend(override.aes = list(size = 4))) +
-  theme_light()
+  theme_light() +
+  ggtitle("Example data")
 
 
 # for multiple areas...

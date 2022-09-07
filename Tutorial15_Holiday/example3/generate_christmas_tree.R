@@ -46,8 +46,10 @@ generate_christmast_tree <- function(seed,
     coord_flip() + 
     theme_void() + 
     theme(legend.position="none",
+          plot.background = element_rect(fill =  "white"),
           plot.title = element_text(hjust = 0.5, size = 14, color = "red"),
           plot.caption = element_text(hjust = 0.5, size = 12, color = "red")) +
     labs(title = greeting, caption = address)
   
 }
+

@@ -1,6 +1,7 @@
 
 generate_christmast_tree <- function(seed, 
-                                     greeting = "Merry Christmas", address = ""){
+                                     greeting = "Merry Christmas", 
+                                     address = ""){
   
   # create data
   x <- c(8,7,6,7,6,5,6,5,4,5,4,3,4,3,2,3,2,1,0.5,0.1)
@@ -45,6 +46,7 @@ generate_christmast_tree <- function(seed,
     coord_flip() + 
     theme_void() + 
     theme(legend.position="none",
+          plot.background = element_rect(fill =  "white"),
           plot.title = element_text(hjust = 0.5, size = 14, color = "red"),
           plot.caption = element_text(hjust = 0.5, size = 12, color = "red")) +
     labs(title = greeting, caption = address)

@@ -34,7 +34,7 @@ Figure 1: Click the green Code button and "Download ZIP" to download the reposit
 <br>
 ```{r, echo = FALSE, out.width="50%", fig.align='center'}
 
-knitr::include_graphics("./images/R project.jpg")
+knitr::include_graphics("./images/R project.JPG")
 
 ```
 Figure 2: Open the Tutorials project and follow the instructions in each folder.

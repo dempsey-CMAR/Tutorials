@@ -27,7 +27,7 @@ repository onto your computer.
 <br>
 
 <br>
-<img src="./images/R project.jpg" width="50%" style="display: block; margin: auto;" />
+<img src="./images/R project.JPG" width="50%" style="display: block; margin: auto;" />
 Figure 2: Open the Tutorials project and follow the instructions in each
 folder.
 

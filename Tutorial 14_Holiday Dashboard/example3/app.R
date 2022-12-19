@@ -8,13 +8,20 @@ library(here)
 library(ggplot2)
 library(glue)
 library(readr)
-library(shiny)
+#library(shiny)
 
-path <- paste0(here(), "/Tutorial14_Holiday Dashboard/example3")
+#path <- paste0(here(), "/Tutorial 14_Holiday Dashboard/example3")
 # import greeting options 
-greet <- read_csv(paste0(path, "/greetings.csv"))
+greet <- read_csv(
+  "greetings.csv",
+ # here("Tutorial 14_Holiday Dashboard/example3", "greetings.csv"), 
+  show_col_types = FALSE
+)
 # source tree function
-source(paste0(path, "/generate_christmas_tree.R"))
+source(
+  "generate_christmas_tree.R"
+ # here("Tutorial 14_Holiday Dashboard/example3", "generate_christmas_tree.R")
+)
 
 
 # tell it what to say

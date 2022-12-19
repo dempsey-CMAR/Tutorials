@@ -1,0 +1,13 @@
+name: holiday_greeting_card
+title: holiday_greeting_card
+username:
+account: dempsey-cmar
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7916739
+bundleId: 6653874
+url: https://dempsey-cmar.shinyapps.io/holiday_greeting_card/
+when: 1671462085.23926
+lastSyncTime: 1671462085.23926
+asMultiple: FALSE
+asStatic: FALSE

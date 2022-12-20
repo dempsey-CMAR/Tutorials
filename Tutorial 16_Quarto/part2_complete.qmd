@@ -28,7 +28,7 @@ For more info on how to generate a reference template, see [Happy collaboration 
 
 A single \# indicates a first-level header.
 
-## Second level header
+## Second level header 
 
 \## indicates a second-level header.
 

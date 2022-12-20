@@ -12,7 +12,7 @@ format:
 
 [![Quarto hex sticker](quarto.png){fig-alt="Quarto hex sticker" fig-align="center" width="100"}](https://github.com/rstudio/hex-stickers)
 
-# What is Quarto?
+# What is Quarto? 
 
 [Quarto](https://quarto.org/) is a framework for creating "computational documents" - documents that contain text AND code that can be rendered into different formats (e.g., PDF, Word, html, [etc.](https://quarto.org/docs/output-formats/all-formats.html)).
 

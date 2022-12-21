@@ -1,0 +1,65 @@
+---
+format: 
+  pdf:
+    mainfont: Comic Sans MS
+    fontsize: 14pt
+    classoption: [landscape]
+    papersize: a5
+    include-in-header: 
+      text: |
+        \pagenumbering{gobble}
+        \usepackage{mdframed}
+          \mdfdefinestyle{myframe}{%
+          linecolor=red,
+          linewidth=4pt,
+          innertopmargin=0pt,
+          innerbottommargin=0pt,
+          innerrightmargin=0pt,
+          innerleftmargin=0pt
+          }
+        \usepackage[dvipsnames]{xcolor}
+    geometry:
+      - top=15mm
+      - left=30mm
+      - right=30mm
+      - bottom=10mm
+---
+
+```{r}
+#| echo: false
+greeting <- "Happy Almost Holidays!"
+
+to <- "Nicole"
+from <- "Danielle"
+message <- "Maybe SOME things are easy"
+
+# must be a colour recognized by dvipsnames
+# https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+text_col <- "OliveGreen"
+
+#image <- "images/cmar_underwater.png"
+image <- "images/christmas_kitty.jpg"
+
+```
+
+\centerline{\textcolor{`r text_col`}{`r greeting`}}
+
+```{=tex}
+
+\newcommand\header[1]{
+  \newlength{\headerwidth}
+  \setlength{\headerwidth}{\widthof{#1}}
+  \addtolength{\headerwidth}{8pt}
+  \begin{mdframed}[style=myframe, nobreak=true, align=center, userdefinedwidth=\headerwidth]#1
+  
+  \end{mdframed}
+}
+
+\header{\includegraphics[width=15cm, height=8.25cm]{`r image`}}
+```
+
+\centerline{\textcolor{`r text_col`}{To: `r to`}}
+
+\centerline{\textcolor{`r text_col`}{From: `r from`}}
+
+\centerline{\textcolor{`r text_col`}{`r message`}}

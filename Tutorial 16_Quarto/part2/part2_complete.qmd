@@ -26,19 +26,26 @@ We will focus on rendering a Word document. The format is controlled with a comb
 
 For more info on how to generate a reference template, see [Happy collaboration with Rmd to docx](https://rmarkdown.rstudio.com/articles_docx.html) or the CMAR SOP0008.
 
+Add the CMAR report template as the reference document to the YAML header. Render document.
+
 A single \# indicates a first-level header.
 
 ## Second level header
 
 \## indicates a second-level header.
 
-We are going to use the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) data set to explore making reports with Quarto.
+Add table of contents to YAML header. Render document.
 
-This data set contains size measurements for `r nrow(penguins)` penguins from three species observed on three islands in the Palmer Archipelago, Antarctica.
+
 
 # Analysis
 
 Here is where we do some analysis on the data. If anything in the dataset changes, we just need to re-render the document for updated tables and figures!
+
+We are going to use the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) data set.
+
+This data set contains size measurements for `r nrow(penguins)` penguins from three species observed on three islands in the Palmer Archipelago, Antarctica.
+
 
 ## Summary Tables
 
@@ -50,6 +57,8 @@ The table format is set in the YAML with the entry `df-print: kable` and from th
 penguins %>% 
   count(species)
 ```
+
+Add `echo: false` to the the code chunk or YAML header to suppress code output.
 
 ### Table 2
 

@@ -27,18 +27,18 @@ format:
 
 ```{r}
 #| echo: false
-greeting <- "Happy Almost Holidays!"
+greeting <- "Tis the Sea-son"
 
-to <- "Nicole"
+to <- "Raeleigh"
 from <- "Danielle"
-message <- "Maybe SOME things are easy"
+message <- "I hope you have a good haul this Christmas!"
 
 # must be a colour recognized by dvipsnames
 # https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
-text_col <- "OliveGreen"
+text_col <- "red"
 
 #image <- "images/cmar_underwater.png"
-image <- "images/christmas_kitty.jpg"
+image <- "images/lobster_tree.png"
 
 ```
 

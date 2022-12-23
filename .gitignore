@@ -3,3 +3,10 @@
 .RData
 .Ruserdata
 rosm.cache
+
+
+Tutorial 16_Quarto/part1/*html
+Tutorial 16_Quarto/part1/part1_files/
+Tutorial 16_Quarto/part2/*.docx
+Tutorial 16_Quarto/part3/old/
+Tutorial 16_Quarto/part3/*.pdf

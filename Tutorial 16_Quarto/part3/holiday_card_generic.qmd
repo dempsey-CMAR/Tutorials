@@ -1,0 +1,116 @@
+---
+format: 
+  pdf:
+    mainfont: Comic Sans MS
+    fontsize: 14pt
+    classoption: [landscape]
+    papersize: a5
+    include-in-header: 
+      text: |
+        \pagenumbering{gobble}
+        \usepackage{mdframed}
+          \mdfdefinestyle{myframe}{%
+          linecolor=red,
+          linewidth=4pt,
+          innertopmargin=0pt,
+          innerbottommargin=0pt,
+          innerrightmargin=0pt,
+          innerleftmargin=0pt
+          }
+        \usepackage[dvipsnames]{xcolor}
+    geometry:
+      - top=15mm
+      - left=30mm
+      - right=30mm
+      - bottom=10mm
+params:
+  to: to
+  from: from
+---
+
+```{r}
+#| label: card-options
+#| include: false
+
+
+library(here)
+
+# must be a colour recognized by the latex package dvipsnames
+# https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+colour_options <- c("red", "OrangeRed", "Maroon", "BrickRed",
+       "OliveGreen", "PineGreen",  "ForestGreen", "YellowGreen",
+       "Dandelion", "Goldenrod")
+
+greeting_options <- c(
+  "Merry Christmas",
+  "Happy Holidays",
+  "MeRry ChRistmas",
+  "Feliz Navidad!",
+  "Merry Chrysler!",
+  "Merry Christmas to all, and to all a good night!",
+  "Ho Ho Ho",
+  "Happy Festivus!",
+  "Seasons Greetings!",
+  "Merry \\& Bright"
+)
+
+image_options <- list.files(
+  here("Tutorial 16_Quarto/part3/images"), full.names = TRUE
+)
+
+message_options <- c(
+  "Wishing you all the best for 2023",
+  "Have yourself a Merry Little Christmas",
+  "Here’s to a joyful holiday season",
+  "Wishing you a season that’s merry & bright",
+  "Hoping your holiday season is filled with joy",
+  "Have a wonderful holiday",
+  "Sending our best to you and yours",
+  "Season’s greetings and warm wishes for the coming year",
+  "May your days be merry and bright",
+  "Tis the season to be jolly",
+  "Hope your season’s full of sparkle",
+  "Warm and cozy wishes"
+)
+
+```
+
+
+```{r}
+#| label: card-selections
+#| echo: false
+
+to <- params$to
+from <- params$from
+
+text_col <- colour_options[sample(1:length(colour_options), 1)]
+
+greeting <- greeting_options[sample(1:length(greeting_options), 1)]
+
+image <- image_options[sample(1:length(image_options), 1)]
+
+message <- message_options[sample(1:length(message_options), 1)]
+
+```
+
+\centerline{\textcolor{`r text_col`}{`r greeting`}}
+
+```{=tex}
+
+\newcommand\header[1]{
+  \newlength{\headerwidth}
+  \setlength{\headerwidth}{\widthof{#1}}
+  \addtolength{\headerwidth}{8pt}
+  \begin{mdframed}[style=myframe, nobreak=true, align=center, userdefinedwidth=\headerwidth]#1
+  
+  \end{mdframed}
+}
+
+\header{\includegraphics[width=15cm, height=8.25cm]{`r image`}}
+```
+
+\centerline{\textcolor{`r text_col`}{To: `r to`}}
+
+\centerline{\textcolor{`r text_col`}{From: `r from`}}
+
+\centerline{\textcolor{`r text_col`}{`r message`}}

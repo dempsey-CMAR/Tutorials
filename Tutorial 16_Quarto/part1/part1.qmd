@@ -69,6 +69,7 @@ R Markdown will continue to be supported, but new features will mostly only be a
 #| include: false
 
 library(palmerpenguins)
+
 ```
 
 We are going to use the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) data set to explore making reports with Quarto.

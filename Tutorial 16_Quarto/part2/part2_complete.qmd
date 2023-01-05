@@ -36,8 +36,6 @@ A single \# indicates a first-level header.
 
 Add table of contents to YAML header. Render document.
 
-
-
 # Analysis
 
 Here is where we do some analysis on the data. If anything in the dataset changes, we just need to re-render the document for updated tables and figures!
@@ -45,7 +43,6 @@ Here is where we do some analysis on the data. If anything in the dataset change
 We are going to use the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) data set.
 
 This data set contains size measurements for `r nrow(penguins)` penguins from three species observed on three islands in the Palmer Archipelago, Antarctica.
-
 
 ## Summary Tables
 

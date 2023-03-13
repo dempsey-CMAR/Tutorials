@@ -3,12 +3,19 @@
 
 # Tutorials
 
-These tutorials are a brief introduction to the R programming language
-and some of its packages. Topics include basics, importing data,
-plotting, the dplyr package, mapping, iteration, functions, dashboards,
-and more. The tutorials were originally developed to help employees of
-the [Centre for Marine Applied Research](https://cmar.ca/) (CMAR) with
-varying levels of R coding experience improve their R skills.
+Welcome to the CMAR R Tutorials Repository!
+
+These tutorials provide a brief introduction to R and some useful
+packages. Topics include basics, importing data, plotting, dplyr,
+mapping, iteration, functions, dashboards, and more. The tutorials were
+originally developed to help employees of the [Centre for Marine Applied
+Research](https://cmar.ca/) (CMAR) with varying levels of coding
+experience improve their R skills.
+
+Prerequisites: we assume you already have
+[R](https://www.r-project.org/) and
+[RStudio](https://posit.co/downloads/) downloaded and installed on your
+computer.
 
 To do the tutorials, download this repository to your own computer by
 clicking the green “Code” button and choosing “Download ZIP” (Figure 1).
@@ -33,6 +40,6 @@ folder.
 
 <br> <br>
 
-If you have any questions or comments about the tutorials, please create
-a new [issue](https://github.com/dempsey-CMAR/Tutorials/issues) on
-GitHub.
+If you have any questions or comments about the tutorials, please ask
+Danielle or create a new
+[issue](https://github.com/dempsey-CMAR/Tutorials/issues) on GitHub.

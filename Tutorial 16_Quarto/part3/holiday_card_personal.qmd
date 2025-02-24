@@ -29,16 +29,16 @@ format:
 #| echo: false
 greeting <- "Merry Christmas"
 
-to <- "Santa"
+to <- "Liam"
 from <- "CMAR"
-message <- "I promise we have been good this year"
+message <- "Yay DO Analysis"
 
 # must be a colour recognized by dvipsnames
 # https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
 text_col <- "OliveGreen"
 
-image <- "images/cmar_underwater.png"
-#image <- "images/christmas_kitty.jpg"
+#image <- "images/cmar_underwater.png"
+image <- "images/christmas_kitty.jpg"
 
 ```
 

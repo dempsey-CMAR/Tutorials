@@ -1,13 +1,15 @@
 ---
 format: 
+  html:
+    toc: true
+    df-print: paged
   docx: 
     reference-doc: CMAR_report_template.docx
     df-print: kable
     toc: true
     toc-depth: 3
 execute: 
-  echo: false
-editor: visual
+  echo: true
 ---
 
 \newpage
@@ -18,6 +20,7 @@ library(dplyr)
 library(ggplot2)
 library(palmerpenguins)
 library(tidyr)
+library(plotly)
 ```
 
 # First level header
@@ -60,6 +63,7 @@ Add `echo: false` to the the code chunk or YAML header to suppress code output.
 ### Table 2
 
 ```{r}
+#| warning: false
 penguins %>% 
   select(-year) %>% 
   group_by(species) %>% 
@@ -75,13 +79,16 @@ The figure format (size, resolution, caption) are set in the code chunk.
 
 Code to make the figures was modified from [here](https://allisonhorst.github.io/palmerpenguins/articles/examples.html).
 
+Look at @fig-length.
+
 ```{r}
 #| fig-width: 8
-#| fig-cap: "Figure 1: Bill length vs flipper length."
+#| fig-cap: "Bill length vs flipper length."
 #| fig-dpi: 600
+#| label: fig-length
 #| warning: false
 
-ggplot(
+p <- ggplot(
   penguins, 
   aes(x = flipper_length_mm, y = bill_length_mm)
 ) +
@@ -93,6 +100,8 @@ ggplot(
   ) +
   theme_minimal()
 
+ggplotly(p)
+
 ```
 
 ```{r}
@@ -101,7 +110,7 @@ ggplot(
 #| fig-dpi: 600
 #| warning: false
 
-ggplot(
+p <- ggplot(
   data = penguins,
   aes(x = bill_length_mm,
       y = bill_depth_mm,
@@ -119,5 +128,7 @@ ggplot(
         plot.caption = element_text(hjust = 0, face= "italic"),
         plot.caption.position = "plot") +
   theme_minimal()
+
+ggplotly(p)
 
 ```

@@ -3,7 +3,7 @@ library(quarto)
 
 card_template <- paste0("Tutorial 16_Quarto/part3/holiday_card_generic.qmd")
 
-to <- c("Kiersten", "Nicole", "Raeleigh", "Ryan", "Leah")
+to <- c("Rachel", "Nicole", "Anne", "Danielle")
 
 # Because of the way the Tutorials project is set up, the cards will be 
 # exported to the Tutorials folder

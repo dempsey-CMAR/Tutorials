@@ -24,7 +24,10 @@ library(readr)        # to read in data
 
 # Import data -------------------------------------------------
 
-path <- paste0(here(), "/Tutorial 9_Mapping5_leaflet_shapefiles")  # automatically sets the path 
+path <- paste0(here(), "/Tutorial 09_Mapping5_leaflet_shapefiles")  # automatically sets the path 
+
+# to add NS basemap to ggplot
+source(paste0(path, "/functions/ns_base_map.R"))
 
 dat <- read_csv(paste0(path, "/data/data_file.csv"))
 
@@ -78,21 +81,26 @@ st_geometry(sites_raw) # extract info about the geometry col
 ggplot() + geom_sf(data = sites_raw) 
 
 # filter for St. Ann's 
-sites <- sites_raw %>% filter(waterbody == "St. Anns Harbour")
+sites <- sites_raw %>% 
+  filter(waterbody == "St. Anns Harbour")
 
 ggplot() + geom_sf(data = sites) 
+
+# adjust x_min, x_max, y_min, y_max to zoom in on St. Anns Harbour
+ns_base_map() + geom_sf(data = sites, col = "red")
 
 
 # add sites to leaflet plot ----------------------------------------------
 leaflet(data = st_ann) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addPolygons(data = sites,
-              color = "#444444", weight = 1, smoothFactor = 0.5,
-              label = ~site,
-              labelOptions = labelOptions(permanent = FALSE),
-              opacity = 1.0, fillOpacity = 0.5,
-              highlightOptions = highlightOptions(color = "white", weight = 2,
-                                                  bringToFront = TRUE)) %>%
+  addPolygons(
+    data = sites,
+    color = "#444444", weight = 1, smoothFactor = 0.5,
+    label = ~site,
+    labelOptions = labelOptions(permanent = FALSE),
+    opacity = 1.0, fillOpacity = 0.5,
+    highlightOptions = highlightOptions(color = "white", weight = 2,
+                                        bringToFront = TRUE)) %>%
   addCircleMarkers(~Long, ~Lat, popup =  ~Place_code,
                    radius = 4, fillOpacity = 1, stroke = FALSE) 
 

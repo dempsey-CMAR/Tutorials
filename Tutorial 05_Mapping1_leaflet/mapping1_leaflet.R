@@ -18,28 +18,28 @@ library(readr)      # to read in data
 
 # Import and explore data -------------------------------------------------
 
-path <- paste0(here(), "/Tutorial 5_Mapping1_leaflet")  # automatically sets the path 
+path <- paste0(here(), "/Tutorial 05_Mapping1_leaflet")  # automatically sets the path 
 
 # read in the data (if this doesn't work, trying pasting in the path manually)
-dat <- read_csv(paste0(path, "/data/data_file.csv"))
+dat <- read_csv(paste0(path, "/data/data_file.csv")) %>% 
+  filter(row_number() %% 10 == 0)
 
 # select columns of interest & keep 1 row for each station
 dat <- dat %>% 
-  select(Location, Site, Lat, Long, Place_code) %>% # selects columns of interest
-  distinct(Place_code, .keep_all = TRUE)             # keeps unique place codes
+  select(location, site, latitude, longitude, place_code) %>% # selects columns of interest
+  distinct(place_code, .keep_all = TRUE)             # keeps unique place codes
 
 
 class(dat)    # check the class of dat
 glimpse(dat)  # take a look at dat  
 
-
 # Basic Map ---------------------------------------------------------------------
 
 # leaflet can handle lat/long data (don't need to convert to sf object)
 
-leaflet(data = dat) %>%
+leaflet(dat) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%  # basemap
-  addMarkers(~Long, ~Lat)                           # observation locations
+  addMarkers(~longitude, ~latitude)                           # observation locations
 
 
 # Customize Markers -------------------------------------------------------
@@ -47,7 +47,7 @@ leaflet(data = dat) %>%
 # change to circle marker
 leaflet(data = dat) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addCircleMarkers(~Long, ~Lat, 
+  addCircleMarkers(~longitude, ~latitude, 
                    color= "green",
                    radius = 4, 
                    fillOpacity = 1, 
@@ -57,8 +57,8 @@ leaflet(data = dat) %>%
 # add a label (hover) based on a column in dat
 leaflet(data = dat) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addCircleMarkers(~Long, ~Lat, 
-                   label = ~Location,
+  addCircleMarkers(~longitude, ~latitude, 
+                   label = ~location,
                    color = "magenta",
                    radius = 4, 
                    fillOpacity = 1, 
@@ -67,27 +67,41 @@ leaflet(data = dat) %>%
 # add a popup label (click to see) based on a column in dat
 leaflet(data = dat) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addCircleMarkers(~Long, ~Lat, 
-                   popup = ~Location,
+  addCircleMarkers(~longitude, ~latitude, 
+                   popup = ~location,
                    color = "green",
                    radius = 4, 
                    fillOpacity = 1, 
                    stroke = FALSE) 
 
 
+# add scale bar
+leaflet(data = dat) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(~longitude, ~latitude, 
+                   popup = ~location,
+                   color = "green",
+                   radius = 4, 
+                   fillOpacity = 1, 
+                   stroke = FALSE) %>% 
+  addScaleBar(
+    position = "bottomright", 
+    options = scaleBarOptions(imperial = FALSE)
+  )
+
 # Add info from multiple columns to label ----------------------------------
 # need a little bit of html!
 
 # add a new column to dat with all the information you want to display
 dat <- dat %>% 
-  mutate(LABEL = paste(Location, Site, Place_code, sep = "</br>")) 
+  mutate(label = paste(location, site, place_code, sep = "</br>")) 
 # </br> is html for start on a new line
 
 # add a popup label (click to see) based on a column in dat
 leaflet(data = dat) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addCircleMarkers(~Long, ~Lat, 
-                   popup = ~LABEL,
+  addCircleMarkers(~longitude, ~latitude, 
+                   popup = ~label,
                    color = "green",
                    radius = 4, 
                    fillOpacity = 1, 
@@ -100,27 +114,27 @@ leaflet(data = dat) %>%
 
 
 # German map?
-leaflet(data = dat) %>%
+leaflet(dat) %>%
   addProviderTiles(providers$OpenStreetMap.DE) %>%
-  addMarkers(~Long, ~Lat)  
+  addMarkers(~longitude, ~latitude)  
 
 # ESRI World Imagery
-leaflet(data = dat) %>%
+leaflet(dat) %>%
   addProviderTiles(providers$Esri.WorldImagery) %>%
-  addMarkers(~Long, ~Lat)  
+  addMarkers(~longitude, ~latitude)  
 
 # topo map
-leaflet(data = dat) %>%
+leaflet(dat) %>%
   addProviderTiles(providers$OpenTopoMap) %>%
-  addMarkers(~Long, ~Lat)  
+  addMarkers(~longitude, ~latitude)  
 
 
 # Export map --------------------------------------------------------------
 
-map_output <- leaflet(data = dat) %>%
+map_output <- leaflet(dat) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addCircleMarkers(~Long, ~Lat, 
-                   popup = ~LABEL,
+  addCircleMarkers(~longitude, ~latitude, 
+                   popup = ~label,
                    color = "green",
                    radius = 4, 
                    fillOpacity = 1, 
